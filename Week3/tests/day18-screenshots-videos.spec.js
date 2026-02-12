@@ -47,13 +47,18 @@ await expect (page).toHaveURL('https://mini-bank.testamplify.com/dashboard/trans
 console.log('6. Waited for transactions page to load');
 
 //7. Wait for transaction table to load
-await page.waitForSelector("//input[text()='Deposit']");
+await page.waitForSelector("//input[text()='Deposit']");//need to correct again
 console.log('7. Transactions table loaded');
 
 //Smart wait- ensures at least one amount value is visible
 const amountCells = page.locator("//td[contains(., '$')]");
 await expect(amountCells.first()).toBeVisible();
 await expect(amountCells.first()).toContainText('$');
+
+await page.screenshot({
+    path: 'test-results/day18-transactions',
+    fullPage: true,
+})
 
 console.log('TEST COMPLETE and screenshot saved!!');
 
