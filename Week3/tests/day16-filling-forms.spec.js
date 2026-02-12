@@ -4,7 +4,7 @@
 
 import { test, expect } from '@playwright/test';
 
-test ('Day 16 - Fill Mini Shop checkout form', async ({page}) => {
+test('Day 16 - Fill Mini Shop checkout form', async ({page}) => {
 // 1. Go to Mini Shop
 console.log('Step 1. Maximize page and go to Mini Shop home page');
 await page.setViewportSize({ width: 1920, height:1080 });
@@ -69,9 +69,9 @@ await page.locator("//input[@name='email']").fill('lholme23@gmail.com');
 await page.locator("//input[@name='cardNo']").fill('4242 4242 4242 4242');
 await page.locator("input[name='expiryDate']").fill('10/26');
 await page.locator("//input[@name='ccv']").fill('200');
-await page.locator("//input[@name='cardName']").fill('Latrice N. Holmes');
+await page.locator("input[name='cardName']").fill('Latrice N Holmes');
 
-//Click Continue to Paymet (Submit)
+//Click Continue to Payment (Submit)
 console.log('Step 8. Click Continue to Payment or Submit');
 const checkoutBtn = page.locator("//button[@type='submit']");
 await checkoutBtn.click();
